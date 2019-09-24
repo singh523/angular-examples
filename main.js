@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var point_1 = require("./point");
 var like_component_1 = require("./like.component");
 console.log("Test Method");
