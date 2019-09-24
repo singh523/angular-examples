@@ -30,7 +30,7 @@ import { Component } from '@angular/core';
     <input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/>
     */
     template: `
-   {{course.title | uppercase| lowercase}} <br/>
+   {{course.title | uppercase| lowercase | summary}} <br/>
    {{course.students | number}} <br/>
    {{course.rating | number:'1.2-2'}} <br/>
    {{course.price | currency:'AUD':true:'3.2-2'}}
@@ -41,7 +41,7 @@ export class CoursesComponent {
     
     email="me@example.com";
     course = {
-        title: "The complete angular course",
+        title: "The complete angular course and the value of this is substring of ",
         rating: 4.9330,
         students: 3022,
         price: 190.22,
