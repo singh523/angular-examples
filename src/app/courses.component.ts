@@ -1,6 +1,7 @@
 import { CourseService } from './courses.service';
 import { Component } from '@angular/core';
 
+
 @Component({
     selector: 'courses',
     /*template: `
@@ -13,14 +14,44 @@ import { Component } from '@angular/core';
                 <td [attr.colspan]="colspan"></td>
             </tr>
         </table>
+
+        //ex2
+        template: `
+            <div (click)="onDivClick()">
+            <button (click)="onSave($event)">Save</button>
+            </div>
+   `
     `
+    ex:3
+    <input #email (keyup.enter)="onKeyUp(email.value)"/>
+    ex:4
+    <input [value]="email" (keyup.enter)="email=$event.target.value; onKeyUp()"/>
+    ex:5 twoway binding
+    <input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/>
     */
-   template: `
-   <button class="btn btn-primary" [class.active]="isActive">Save</button>
+    template: `
+   {{course.title | uppercase| lowercase}} <br/>
+   {{course.students | number}} <br/>
+   {{course.rating | number:'1.2-2'}} <br/>
+   {{course.price | currency:'AUD':true:'3.2-2'}}
+   {{course.releaseDate | date:'shortDate'}}
    `
 })
 export class CoursesComponent {
-    title = "List of course";
-    imageUrl = "http://www.shutterstock.com/image-photo/mountains-during-sunset-beautiful-natural-landscape-407021107";
-    colspan=2;
+    
+    email="me@example.com";
+    course = {
+        title: "The complete angular course",
+        rating: 4.9330,
+        students: 3022,
+        price: 190.22,
+        releaseDate: new Date(2019, 2,2)
+
+    }
+
+    onKeyUp() {
+        console.log("enter pressed: " + this.email);
+    }
+
+    
 }
