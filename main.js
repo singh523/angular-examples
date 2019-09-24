@@ -1,0 +1,16 @@
+"use strict";
+exports.__esModule = true;
+var point_1 = require("./point");
+var like_component_1 = require("./like.component");
+console.log("Test Method");
+var p = new point_1.Point(120, 201);
+console.log(p.draw());
+var component = new like_component_1.LikeComponent(10, true);
+component.onClick();
+console.log(component.likesCount);
+component.onClick();
+console.log('like component' + component.likesCount);
+component.onClick();
+component.onClick();
+component.onClick();
+console.log('like component' + component.likesCount);
